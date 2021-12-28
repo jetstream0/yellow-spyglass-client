@@ -68,7 +68,9 @@ export class NavigationComponent implements OnInit {
 
     selectItem(navItem: NavItem): void {
         this.navigate(navItem.route);
-        this._stateService.setDrawerOpen(false);
+        if (this.vp.sm) {
+            this._stateService.setDrawerOpen(false);
+        }
     }
 
     getSelectedItem(): string {

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
     providedIn: 'root',
 })
 export class DrawerStateService {
-    private drawerOpen = false;
+    private drawerOpen = true;
     private selectedItem: string;
 
     setDrawerOpen(drawerOpen: boolean): void {

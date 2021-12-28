@@ -96,8 +96,11 @@
     }
     .navigation-app-bar-container {
         position: fixed;
-        width: 100vw;
+        width: calc(100vw - 280px);
         box-sizing: border-box;
+        &.sm {
+            width: 100vw;
+        }
     }
 }
 

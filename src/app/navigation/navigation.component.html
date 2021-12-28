@@ -1,4 +1,4 @@
-<pxb-drawer-layout variant="temporary" (backdropClick)="closeDrawer()" width="280" responsive [class.open]="isOpen()">
+<pxb-drawer-layout [variant]="vp.sm ? 'temporary' : 'persistent'" (backdropClick)="closeDrawer()" width="280" responsive [class.open]="isOpen()">
     <pxb-drawer pxb-drawer [open]="isOpen()" [sideBorder]="true" [openOnHover]="false">
         <pxb-drawer-header>
             <div pxb-title-content class="navigation-drawer-header-content">
@@ -34,10 +34,10 @@
         </pxb-drawer-body>
     </pxb-drawer>
     <div pxb-content class="navigation-drawer-content" [class.home]="isHome()" responsive>
-        <div class="navigation-app-bar-container">
+        <div class="navigation-app-bar-container" responsive>
             <mat-toolbar class="navigation-app-bar mat-elevation-z2" [class.home]="isHome()" color="primary" responsive>
                 <div style="display: flex; width: 100%; align-items: center">
-                    <button mat-icon-button (click)="openDrawer()" [style.marginRight.px]="vp.sm ? 16 : 24">
+                    <button mat-icon-button (click)="openDrawer()" [style.marginRight.px]="vp.sm ? 16 : 24" *ngIf="vp.sm">
                         <mat-icon>menu</mat-icon>
                     </button>
                     <div responsive class="navigation-toolbar-title" (click)="goHome()">
@@ -57,7 +57,7 @@
             </mat-toolbar>
             <mat-toolbar class="navigation-search-bar" [class.active]="toggleSearch" responsive>
                 <mat-toolbar-row style="padding: 0 16px" style="display: flex; width: 100%">
-                    <button mat-icon-button disabled style="margin-left: -8px">
+                    <button mat-icon-button disabled style="margin-left: -8px" >
                         <mat-icon>search</mat-icon>
                     </button>
                     <input
